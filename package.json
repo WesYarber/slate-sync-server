@@ -1,0 +1,13 @@
+{
+  "name": "slate-sync-server",
+  "version": "1.0.0",
+  "description": "Self-hosted, end-to-end-encrypted sync server for Slate notes",
+  "license": "MIT",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "bun run src/server.ts",
+    "admin": "bun run src/cli.ts",
+    "test": "bun test"
+  }
+}

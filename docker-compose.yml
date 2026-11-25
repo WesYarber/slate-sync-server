@@ -1,0 +1,20 @@
+# Put HTTPS in front of this (Caddy, nginx, a Cloudflare Tunnel...): the port is
+# only published on this machine. See README.md.
+services:
+  slate-sync:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8787:8787"
+    environment:
+      # Largest single file (bytes). Keep it under your proxy's body limit.
+      MAX_OBJECT_BYTES: "104857600"
+      # Most one account may store (bytes); 0 means no limit.
+      MAX_ACCOUNT_BYTES: "0"
+    volumes:
+      - slate-sync-data:/data
+
+volumes:
+  slate-sync-data:
+    # A fixed name, so backup commands don't depend on the folder you cloned into.
+    name: slate-sync-data

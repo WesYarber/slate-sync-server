@@ -1,0 +1,20 @@
+# Server data: the database and the encrypted blobs. Never commit it.
+data/
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+blobs/
+backups/
+*.tar.gz
+
+# Settings and credentials
+.env
+.env.*
+secrets/
+*token*.txt
+*.pem
+*.key
+
+node_modules/
+.DS_Store
